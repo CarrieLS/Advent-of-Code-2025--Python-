@@ -46,9 +46,6 @@ print(f"Puzzle 2-1 solution: {addInvalidIDs(puzzleIDs)}")
 #i'll precache 1
 cachedFactors = {1 : {1}}
 
-#there are def faster ways to do this
-#but this shouldn't be too slow, O(sqrt(N)) for fixed size ints i think
-#also we are just factoring digit count which doesn't go too high in this problem
 #returns factors as a list
 def _findFactors(wholeNumber):
     if wholeNumber <= 0 or type(wholeNumber) is not int:

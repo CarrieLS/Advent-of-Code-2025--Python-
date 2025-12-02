@@ -15,7 +15,6 @@ puzzleIDs = None
 with open("../adventFiles/puzzle2.txt") as f:
     puzzleIDs = f.readline().strip()
 
-#func to check if a single int ID is made up of two repeat numbers
 def _IDisTwoRepeats(IDval):
     digits = int(np.log10(IDval)) + 1
     if digits % 2 == 1:
@@ -40,13 +39,6 @@ assert addInvalidIDs(testIDs) == 1227775554
 
 print(f"Puzzle 2-1 solution: {addInvalidIDs(puzzleIDs)}")
 
-#2-2
-#now we need to include all repeats, not just two
-#can't do this as simply, have to check for possible repeats of any
-#digit count which is a factor of total digits and is <= digits/2
-
-#lets try to make the factor finding not toooo slow
-#simple check for factors up to sqrt(N)
 #A is factor of B if B % A == 0
 #add factor pair when found
 #cache results so we aren't repeatedly factorizing the same numbers
@@ -72,8 +64,6 @@ def _findFactors(wholeNumber):
                 cachedFactors[wholeNumber].add(wholeNumber//n)
     return cachedFactors[wholeNumber]
 
-#func to check if a single int ID is made up of repeated substrings
-#lets do it as a string now
 def _IDisRepeats(IDval):
     stringID = str(IDval)
     digitCount = len(stringID)
